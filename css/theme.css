@@ -47,7 +47,52 @@ nav {
 .menu a:hover {
     font-weight: 700;
 }
-
+/********** Modale de contact **********/
+body .modale {
+    border : 5px solid black;
+    max-width: 597px;
+    position: relative;
+    left: 33%;
+}
+.modaleForm {
+    display: flex;
+    justify-content: center;
+}
+.modaleForm label{
+    font-family: "Poppins", "Arial, Helvetica, sans-serif";
+    font-size: 12px;
+}
+.sendForm{
+    display: flex;
+    justify-content: center;
+}
+/* .sendForm p{
+    width: 20%;
+} */
+.modale .sendForm p .wpcf7-form-control{
+    width: 263px;
+    height: 50px;
+    border: none;
+    border-radius: 2px;
+    background-color: #D8D8D8;
+}
+.messageForm p label .wpcf7-form-control {
+    width: 263px;
+    height: 210px;
+    border : 1px solid #B8BBC2;
+    border-radius: 8px;
+    font-family: "SpaceMono", "Arial, Helvetica, sans-serif";
+    font-size: 12px;
+}
+.modale input {
+    width: 263px;
+    height: 40px;
+    border : 1px solid #B8BBC2;
+    border-radius: 8px;
+}
+.modale p {
+    width: 263px;
+}
 /*********** Footer ***********/
 
 footer {

@@ -27,6 +27,10 @@
                 ?>
             </nav>
 						<!-- Other elements will be added later -->
+			
+			
         </header>
-
+            <div class="modale">
+       			<?php include(get_stylesheet_directory() . '/template_part/modale.php'); ?>
+			</div>
         <main>
