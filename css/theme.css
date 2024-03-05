@@ -49,14 +49,28 @@ nav {
 }
 /********** Modale de contact **********/
 body .modale {
-    border : 5px solid black;
-    max-width: 597px;
-    position: relative;
-    left: 33%;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+#modale{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.buttonClose{
+    width: 656px;
+}
+.button_modale{
+    float: right;
 }
 .modaleForm {
     display: flex;
     justify-content: center;
+}
+.modaleImgForm{
+    width: 597px;
+    border : 5px solid black;
 }
 .modaleForm label{
     font-family: "Poppins", "Arial, Helvetica, sans-serif";
