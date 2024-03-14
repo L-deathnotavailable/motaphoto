@@ -1,33 +1,33 @@
 <?php
 	get_header();
 
-// Récupération de l'identifiant de la photo (nom) dans l'URL
-$slug = get_query_var('photographies');
+    // Récupération de l'identifiant de la photo (nom) dans l'URL
+    $slug = get_query_var('photographies');
 
-// Construction des critères de recherche
-$args = [
-    'post_type' => 'photographies',
-    'name' => $slug,
-    'posts_per_page' => 1
-];
+    // Construction des critères de recherche
+    $args = [
+        'post_type' => 'photographies',
+        'name' => $slug,
+        'posts_per_page' => 1
+    ];
 
-// Requête auprès de la base de données wordpress pour récupérer la photo correspondante
-$custom_query = new WP_Query($args);
+    // Requête auprès de la base de données wordpress pour récupérer la photo correspondante
+    $custom_query = new WP_Query($args);
 
-if ($custom_query->have_posts()) :
-    while ($custom_query->have_posts()) : $custom_query->the_post();
+    if ($custom_query->have_posts()) :
+        while ($custom_query->have_posts()) : $custom_query->the_post();
 
-	$reference = get_field('reference');
-	$type = get_field('type');
-	$categories = wp_get_post_terms(get_the_ID(), 'categorie');
-	$formats = wp_get_post_terms(get_the_ID(), 'formats');
+        $reference = get_field('reference');
+        $type = get_field('type');
+        $categories = wp_get_post_terms(get_the_ID(), 'categorie');
+        $formats = wp_get_post_terms(get_the_ID(), 'formats');
 ?>
-<div class="...">
+    <div class="articlephoto">
 		<!-- Zone gauche - Informations photos -->
-		<div class="...">
-			<div class="...">
+		<div class="specificationsPhotos">
+			<div class="detailsArticle">
 				<h2><?php echo the_title();?></h2>
-				<p>RÉFÉRENCE : <span id="..."><?php echo $reference;?></span></p>
+				<p>RÉFÉRENCE : <span id="ref"><?php echo $reference;?></span></p>
 				<p>CATÉGORIE : 
 					<?php foreach ($categories as $categorie) {
                         echo esc_html($categorie->name);
@@ -44,7 +44,7 @@ if ($custom_query->have_posts()) :
 			</div>
 		</div>
 		<!-- Zone droite - La photo -->
-		<div class="...">
+		<div class="photo">
 			<div class="...">
 				<?php the_content();?>
 			</div>
