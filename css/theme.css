@@ -107,6 +107,36 @@ body .modale {
 .modale p {
     width: 263px;
 }
+/********** Articles photos **********/
+.detailsArticle{
+    font-family: 'SpaceMono', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 15px;
+    text-transform: uppercase;
+    line-height: 20px;
+}
+.detailsArticle h2 {
+    font-size: 66px;
+    font-style: italic;
+    line-height: 58px;
+    margin-bottom: 30px
+}
+.articlephoto{
+    display: flex;
+}
+.specificationsPhotos{
+    display: flex;
+    width: 50%;
+    margin-left: 75px;
+    align-items: flex-end;
+    border-block-end: 1px solid;
+    margin-bottom: 16px;
+}
+.photodroite{
+    width: 50%;
+}
+
 /*********** Footer ***********/
 
 footer {
