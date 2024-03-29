@@ -52,6 +52,7 @@ body .modale {
     width: 100%;
     height: 100%;
     display: none;
+    position: fixed;
 }
 #modale{
     display: flex;
@@ -71,6 +72,7 @@ body .modale {
 .modaleImgForm{
     width: 597px;
     border : 5px solid black;
+    background-color: white;
 }
 .modaleForm label{
     font-family: "Poppins", "Arial, Helvetica, sans-serif";
@@ -136,20 +138,25 @@ body .modale {
 }
 .photodroite{
     width: 50%;
+    margin-right: 75px;
 }
-/******Bandeau sous photo *************/
+/********* Bandeau sous photo *************/
 .TxtBtnFleche{
     display: flex;
     margin-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 30px;
     margin-left: 75px;
-    max-width: 84%;
+    margin-right: 75px;
+    height: 120px;
     justify-content: space-between;
     border-bottom: 1px solid black;
 }
 .TxtBtn{
     display: flex;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
 }
 .TxtBtn p{
     font-family: 'Poppins', sans-serif;
@@ -171,16 +178,83 @@ body .modale {
 }
 .GestionFleches{
     display: flex;
+    position: absolute;
+    margin-top: 90px;
+    gap: 50px;
 }
-.GestionGauche{
+/* .GestionGauche{
 margin-right: 15px;
 }
 .GestionDroite{
     margin-left: 15px;
+} */
+.tableau{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
 }
-
-
-
+.div-vignettes{
+    display: flex;
+} 
+.div-vignettes img{
+    width: 90px;
+    height: 90px;
+}
+.conteneur-vignette-precedent,.conteneur-vignette-suivant{
+    display: none;
+}
+/************ Vous aimerez aussi *********************/
+.PartiePhotoApparentees{
+    margin-left: 75px;
+}
+.PhotosProposees{
+    display: flex;
+    GAP: 20px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.Vsaimerez{
+    font-family: 'SpaceMono', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+.autres-photos{
+    overflow: hidden;
+    width: 565px;
+    height: 495px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.autres-photos figure{
+    width: 100%;
+    height: 100%;
+}
+.autres-photos figure img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* .TouteslesPhotosBtn{
+    font-family: 'SpaceMono', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    background-color: #D8D8D8;
+    border: none;
+    border-radius: 2px;
+    width: 272px;
+    height: 50px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
 
 /*********** Footer ***********/
 

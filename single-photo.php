@@ -53,7 +53,7 @@
 	</div>
 
     
-<!-- Ajout du bandeau d'interactions inférieur -->
+    <!-- Ajout du bandeau d'interactions inférieur -->
     <div class="bandeauSousPhoto">
         <div class="TxtBtnFleche">
             <div class="TxtBtn">
@@ -92,7 +92,7 @@
                         if (!empty($previous_post)) :
                         ?>
                             <a href="<?php echo get_permalink($previous_post); ?>">
-                                <img class="flecheNavG" src="<?php echo get_stylesheet_directory_uri() . '/assets/fleche-navigation-gauche.png' ?>" alt="Flèche de gauche" />
+                                <img class="flecheG" src="<?php echo get_stylesheet_directory_uri() . '/assets/fleche-navigation-gauche.png' ?>" alt="Flèche de gauche" />
                             </a>
                         <!-- Si post précédent non-existant, affichage du dernier post publié -->
                         <?php else :
@@ -111,7 +111,7 @@
                         if (!empty($next_post)) :
                         ?>
                             <a href="<?php echo get_permalink($next_post); ?>">
-                                <img class="flecheNavD" src="<?php echo get_stylesheet_directory_uri() . '/assets/fleche-navigation-droite.png' ?>" alt="Flèche de droite" />
+                                <img class="flecheD" src="<?php echo get_stylesheet_directory_uri() . '/assets/fleche-navigation-droite.png' ?>" alt="Flèche de droite" />
                             </a>
                         <!-- Si post suivant non-existant, affichage du premier post publié -->
                         <?php else :
@@ -123,41 +123,87 @@
                         <?php endif; ?>
                     </div>   
                 </div>
+                <div class="div-vignettes">
+                    <div class="conteneur-vignette-precedent">
+                        <?php
+                            // Récupération de la photo du post précédent
+                            if (!empty($previous_post)) {
+                                $miniature = get_post_field('post_content', $previous_post->ID);
+                            } else {
+                                $miniature = get_post_field('post_content', $last_post);
+                            }
+                            // Affichage du contenu
+                            echo $miniature;
+                        ?>
+                    </div>
+                    <div class="conteneur-vignette-suivant">
+                        <?php
+                            // Récupération de la photo du post suivant
+                            if (!empty($next_post)) {
+                                $vignette = get_post_field('post_content', $next_post->ID);
+                            } else {
+                                $vignette = get_post_field('post_content', $first_post);
+                            }
+                            // Affichage du contenu
+                            echo $vignette;
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-		    <div class="div-vignettes">
-				<div class="conteneur-vignette-precedent">
-					<?php
-						// Récupération de la photo du post précédent
-						if (!empty($previous_post)) {
-							$miniature = get_post_field('post_content', $previous_post->ID);
-						} else {
-							$miniature = get_post_field('post_content', $dernier_post);
-						}
-						// Affichage du contenu
-						echo $miniature;
-					?>
-				</div>
-				<div class="conteneur-vignette-suivant">
-					<?php
-						// Récupération de la photo du post suivant
-						if (!empty($next_post)) {
-							$vignette = get_post_field('post_content', $next_post->ID);
-						} else {
-							$vignette = get_post_field('post_content', $first_post);
-						}
-						// Affichage du contenu
-						echo $vignette;
-					?>
-				</div>
-		    </div>
-		</div>
-	</div>
 
 <?php
     endwhile;
     wp_reset_postdata();
 endif;
+?>
+
+<!-- Dernière partie de page - Photos apparentées -->
+<div class="PartiePhotoApparentees">
+	<h3 class="Vsaimerez">Vous aimerez aussi</h3>
+	<div class="VousAimerezAussi">
+		<div class="PhotosProposees">
+			<?php
+				// Récupération de la catégorie de la photo actuelle
+				$categories = wp_get_post_terms(get_the_ID(), 'cate');
+
+				if ($categories && !is_wp_error($categories)) {
+					$ID_categories = wp_list_pluck($categories, 'term_id');
+
+					// Récupération de deux photos de la même catégorie aléatoirement, en excluant la photo affichée au dessus
+					$photos_similaires = new WP_Query(array(
+						'post_type' => 'photographies',
+						'posts_per_page' => 2,
+						'post__not_in' => array(get_the_ID()),
+						'orderby' => 'rand',
+						'tax_query' => array(
+							array(
+								'taxonomy' => 'cate',
+								'field' => 'id',
+								'terms' => $ID_categories,
+							),
+						),
+					));
+
+					if ($photos_similaires->have_posts()) {
+						while ($photos_similaires->have_posts()) {
+							$photos_similaires->the_post();
+                            // Affichage de la photo similaire gérée via un template part
+							get_template_part('template_part/photo-bloc');
+						}
+						wp_reset_postdata();
+					} else {
+						// Affichage d'un message si aucune photo similaire n'est trouvée dans la même catégorie
+						echo "Aucune photo similaire pour le moment";
+					}
+				}
+			?>
+		</div>
+		<!-- <a href="<?php //echo esc_url(home_url('/')); ?>"><button class="TouteslesPhotosBtn">Toutes les photos</button></a> -->
+	</div>
+</div>
+
+<?php
+	get_footer();
 ?>
