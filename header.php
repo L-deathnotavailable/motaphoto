@@ -13,7 +13,12 @@
         <header>
             <!-- Add a custom logo that can be modified via the dashboard-->
             <div class="logo">
-                <?php the_custom_logo() ?>
+                <div>
+                    <?php the_custom_logo() ?>
+                </div>
+                <div>
+                    <img class="burger-open" src="<?php echo get_stylesheet_directory_uri() . '/assets/burger-open.png' ?>" alt="Icone burger" />
+                </div>
             </div>
             
             <nav>
@@ -26,11 +31,10 @@
                 ));
                 ?>
             </nav>
-						<!-- Other elements will be added later -->
-			
-			
+						<!-- Other elements like modale -->
         </header>
             <div class="modale">
        			<?php include(get_stylesheet_directory() . '/template_part/modale.php'); ?>
 			</div>
         <main>
+

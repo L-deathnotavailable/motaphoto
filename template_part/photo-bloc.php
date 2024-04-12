@@ -44,10 +44,10 @@
             </div>
             <div class="bas-survol">
                 <div class="PhotoRef">
-                    <?php //echo $reference_photo ?>
+                    <?php echo $reference_photo ?>
                 </div>
                 <div class="ListeCategories">
-                    <?php //echo $liste_categories; ?>
+                    <?php echo $liste_categories; ?>
                 </div>
             </div>
         </div>

@@ -13,6 +13,7 @@
     function theme_enqueue_script() {
         wp_enqueue_script('jquery');
         wp_enqueue_script('script', get_template_directory_uri() . '/js/scripts.js');
+        wp_enqueue_script('script-lightbox', get_template_directory_uri() . '/js/lightbox.js');
         if(is_home()){
             wp_enqueue_script('script-pagination', get_template_directory_uri() . '/js/charger-plus.js');
             wp_localize_script('script-pagination', 'myAjax', array('ajaxurl' => admin_url('admin-ajax.php'), 'nonce'   => wp_create_nonce('ajax-nonce'),));
@@ -94,7 +95,7 @@ function filtrer_photos() {
     if (isset($_POST['category']) && $_POST['category'] !== 'all') {
         $category = $_POST['category'];
         $tax_query[] = array(
-            'taxonomy' => 'categorie',
+            'taxonomy' => 'cate',
             'field' => 'slug',
             'terms' => $category,
         );

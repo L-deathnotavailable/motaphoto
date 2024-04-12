@@ -8,10 +8,12 @@ get_header();
         <div class="AfficheImgs">
             <?php
             // Affichage aléatoire d'une photo
+            $query[]=array("taxonomy"=>"formats","terms"=>"paysage","field"=>"slug");
             $args = array(
                 'post_type' => 'photographies',
                 'posts_per_page' => 1,
                 'orderby' => 'rand',
+                'tax_query' => $query
             );
 
             $photo_aleatoire_hero = new WP_Query($args);
