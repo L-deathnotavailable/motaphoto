@@ -31,7 +31,7 @@
 <!-- Affichage du bloc photo -->
 <div class="autres-photos">
     <div class="lien-photo">
-        <?php //echo $lien_post; ?>
+        <?php echo $lien_post; ?>
     </div>
     <?php echo $photo_post; ?>
     <div class="survol-photo">

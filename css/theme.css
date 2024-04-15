@@ -291,7 +291,6 @@ margin-right: 15px;
 }
 .AfficheImgs figure, .AfficheImgs img{
     object-fit: cover;
-    width: 100%;
     height: 100%;
     width: 100%;
     display: block;
@@ -592,11 +591,11 @@ margin-right: 15px;
     display: none;
 }
 
-.zone-les-photos .autres-photos, .zone-photos .autres-photos {
+.autres-photos {
     position: relative;
 }
 
-.zone-les-photos .survol-photo, .zone-photos .survol-photo {
+.survol-photo {
     display: none;
     position: absolute;
     top: 0;
@@ -609,7 +608,7 @@ margin-right: 15px;
     align-items: center;
 }
 
-.zone-les-photos .structuration-survol-photo, .zone-photos .structuration-survol-photo {
+.structuration-survol-photo {
     width: 100%;
     height: 100%;
     position: relative;
@@ -623,14 +622,14 @@ margin-right: 15px;
     line-height: 20px;
 }
 
-.zone-les-photos .haut-survol, .zone-photos .haut-survol {
+.haut-survol {
     transform: scale(1.6);
     position: absolute;
     top: 15px;
     left: 520px;
 }
 
-.zone-les-photos .haut-survol i, .zone-photos .haut-survol i {
+.haut-survol i {
     background-color: #000;
     padding: 6px;
     border-radius: 50%;
@@ -638,12 +637,12 @@ margin-right: 15px;
     cursor: pointer;
 }
 
-.zone-les-photos .milieu-survol, .zone-photos .milieu-survol {
+.milieu-survol {
     transform: scale(2.4);
     position: absolute;
 }
 
-.zone-les-photos .milieu-survol i, .zone-photos .milieu-survol i {
+.milieu-survol i {
     cursor: pointer;
     opacity: 0.8;
 }
@@ -680,20 +679,83 @@ margin-right: 15px;
     font-weight: 400;
     font-style: normal;
 }
+.burger-open{
+    display: none;
+}
+
+/*********** Footer ***********/
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px black solid;
+    width: 100%;
+}
+
 /********************* RESPONSIVE ********************/
 @media (max-width: 769px) {
+    /********** Header ************/
+     .logo img {
+        max-width: 200px;
+    }
+    header{
+        flex-direction: column;
+        justify-content: center;
+    }
+    nav {
+        display: none;
+        width: 100%;
+        z-index: 999;
+        background-color: red;
+        margin: 0;
+        justify-content: center;
+        padding: 150px 0;
+    }
+    nav ul {
+        flex-direction: column;
+        padding-left: 0;
+    }
+    nav ul.menu li a{
+        color: white;
+        font-size: 44px;
+    }
+
+    .burger-open{
+        display: block;
+    }
+
+    .logo {
+        margin: 0 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    /* Fin du header, home */
+
+    /********** Modale ************/
+
+
+    /********** Hero ************/
     .hero-background {
         height: 250px;
     }
     .hero h1 {
-        font-size: 25px;
+        font-size: 30px;
+    }
+    .AfficheImgs {
+        height: auto;
     }
     .filtres {
         width: 100%;
-        margin-top: 30px;
+        margin: 20px 0;
         display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #filtre-tri  {
+        padding: 0;
     }
     .menu-options {
         position: sticky;
@@ -701,14 +763,33 @@ margin-right: 15px;
     .zone-les-photos {
         display: flex;
         flex-direction: column;
-        row-gap: 0;
+        /* row-gap: 0; */
     }
-    .zone-les-photos .autres-photos, .zone-photos .autres-photos {
+    /* .zone-les-photos .autres-photos, .zone-photos .autres-photos {
         width: 320px;
         height: 280px;
-    }
+    } */
     #charger-plus {
         display: block;
+    }
+    .articlephoto {
+        flex-direction: column-reverse;
+    }
+    .specificationsPhotos{
+        width: 100%;
+    }
+    .tableau{
+        display: none;
+    }
+    .TxtBtn{
+        width: 100%;
+        flex-direction: column;
+    }
+    .ContactezNous {
+        margin: 0;
+    }
+    .PhotosProposees {
+        flex-direction: column;
     }
 
     /* Lightbox */
@@ -731,13 +812,9 @@ margin-right: 15px;
         top: 240px;
         transform: scale(1.2);
     }
-}
-/*********** Footer ***********/
-
-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top: 1px black solid;
-    width: 100%;
+    /********** Footer ************/
+    .menu{
+        margin-top: 30px;
+        flex-direction: column;
+    }
 }

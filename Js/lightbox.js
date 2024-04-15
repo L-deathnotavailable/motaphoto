@@ -12,7 +12,7 @@ function lightbox() {
     ////////////////////////////////////////////////////////////////////
 
     // Création d'un tableau pour stocker les informations de toutes les photos à chaque chargement
-
+    setTimeout(function(){
     const tableauPhotos = photos.map(element => {
         const laPhoto = element.querySelector('img');
         const hauteurLaPhoto = laPhoto.naturalHeight;
@@ -27,6 +27,7 @@ function lightbox() {
             categorie: categorie.textContent,
         };
     });
+    
 
     ////////////////////////////////////////////////////////////////////
 
@@ -99,7 +100,7 @@ function lightbox() {
     });
     
     ////////////////////////////////////////////////////////////////////
-
+    },300);
     // Fermeture de la lightbox
     const fermetureLightbox = document.querySelector('.lightbox-fermeture');
 

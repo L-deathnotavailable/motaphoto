@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const doc = parser.parseFromString(responseData, 'text/html');
                 const figureCompte = doc.querySelectorAll('figure').length;
                 // L'overlay de chaque photo se charge au clic sur le bouton
-                // overlay();
-                // lightbox();
+                overlay();
+                lightbox();
 
                 // Si moins de 8 éléments, le bouton disparait
                 if (figureCompte <= 8) {
