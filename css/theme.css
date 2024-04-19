@@ -715,13 +715,22 @@ footer {
 
 /************************************************** RESPONSIVE ***********************************************************/
 @media (max-width: 769px) {
-    /********** Header ************/
-     .logo img {
-        max-width: 200px;
+    body{
+        margin: 10px 0 0px 0;
     }
+    /********** Header ************/
+    .custom-logo-link{
+        margin-left: 40px;
+    }
+    .logo img {
+        max-width: 216px;
+        margin-right: 40px;
+        margin-top: 30px;
+    }
+
     header{
         flex-direction: column;
-        justify-content: center;
+        box-shadow: 0 4px 4px 0 #00000008;
     }
     nav {
         display: none;
@@ -731,6 +740,7 @@ footer {
         margin: 0;
         justify-content: center;
         padding: 150px 0;
+        margin-top: 30px;
     }
     nav ul {
         flex-direction: column;
@@ -754,7 +764,16 @@ footer {
     /* Fin du header, home */
 
     /********** Modale ************/
-
+    .modale{
+        z-index: 9999999;
+    }
+    .buttonClose {
+        width: 0;
+    }
+    .modaleImgForm {
+        width: 80%;
+        overflow: hidden;
+    }
 
     /********** Hero ************/
     .hero-background {
@@ -783,6 +802,7 @@ footer {
     .zone-les-photos {
         display: flex;
         flex-direction: column;
+        margin-left: 40px;
         /* row-gap: 0; */
     }
     /* .zone-les-photos .autres-photos, .zone-photos .autres-photos {
@@ -793,7 +813,7 @@ footer {
         flex-direction: column-reverse;
     }
     .specificationsPhotos{
-        width: 100%;
+        width: 88%;
     }
     .tableau{
         display: none;
@@ -838,6 +858,9 @@ footer {
         width: 100%;
         margin: 0 40px 0 40px;
     }
+    .PContent{
+        margin-right: 40px;
+    }
     .specificationsPhotos {
         margin-left: 40px;
         border-block-end: 1px solid;
@@ -859,6 +882,7 @@ footer {
         padding-bottom: 10px;
         border-bottom: 1px solid black;
         /* margin-right: 40px; */
+        margin-right: 60px;
     }
     .TxtBtn {
         display: flex;
@@ -877,11 +901,15 @@ footer {
         margin-right: 40px;
     }
     /****** Footer responsive ******/
+    .site-footer{
+        margin-top: 30px;
+    }
     .menu {
         display: flex;
         gap: 30px;
         padding-right: 0px;
-        margin-top: 30px;
+        margin-top: 45px;
+        margin-bottom: 45px;
         flex-direction: column;
     }
 }   
