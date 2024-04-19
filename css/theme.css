@@ -27,6 +27,7 @@ nav {
 .menu {
     display: flex;
     gap: 50px;
+    padding-right: 40px;
 }
 
 .menu li {
@@ -432,6 +433,7 @@ margin-right: 15px;
     margin-bottom: 30px;
 }
 #charger-plus{
+    display: block;
     font-family: 'SpaceMono', sans-serif;
     text-transform: uppercase;
     font-weight: 400;
@@ -442,6 +444,10 @@ margin-right: 15px;
     border-radius: 2px;
     width: 272px;
     height: 50px;
+}
+#charger-plus:hover {
+    background-color: black;
+    color: white;
 }
 
 /*********** Lightbox ***********/
@@ -647,7 +653,7 @@ margin-right: 15px;
     opacity: 0.8;
 }
 
-.zone-les-photos .bas-survol, .zone-photos .bas-survol {
+.zone-les-photos .bas-survol {
     display: flex;
     gap: 220px;
     transform: scale(1.5);
@@ -679,10 +685,18 @@ margin-right: 15px;
     font-weight: 400;
     font-style: normal;
 }
+.survol-photo  .bas-survol {
+    display: flex;
+    gap: 220px;
+    transform: scale(1.5);
+    position: absolute;
+    top: 450px;
+    opacity: 0.8;
+}
 .burger-open{
     display: none;
 }
-
+/****** END OF OVERLAY ********/
 /*********** Footer ***********/
 
 footer {
@@ -691,9 +705,15 @@ footer {
     justify-content: center;
     border-top: 1px black solid;
     width: 100%;
+    font-family: 'SpaceMono', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
 }
 
-/********************* RESPONSIVE ********************/
+/************************************************** RESPONSIVE ***********************************************************/
 @media (max-width: 769px) {
     /********** Header ************/
      .logo img {
@@ -769,9 +789,6 @@ footer {
         width: 320px;
         height: 280px;
     } */
-    #charger-plus {
-        display: block;
-    }
     .articlephoto {
         flex-direction: column-reverse;
     }
@@ -799,22 +816,72 @@ footer {
     .informations-photo {
         gap: 150px;
     }
-    .zone-les-photos .survol-photo, .zone-photos .survol-photo {
+    .survol-photo {
         height: 97.5%;
     }
-    .zone-les-photos .haut-survol, .zone-photos .haut-survol {
+    /* .haut-survol {
         transform: scale(1.2);
         top: 5px;
         left: 290px;
-    }
-    .zone-les-photos .bas-survol, .zone-photos .bas-survol {
+    } */
+    .bas-survol {
         gap: 110px;
         top: 240px;
         transform: scale(1.2);
     }
-    /********** Footer ************/
-    .menu{
+    /*************** Single photo page Responsive *************/
+    .articlephoto {
+        display: flex;
+        margin-top: 20px;
+    }
+    .photodroite{
+        width: 100%;
+        margin: 0 40px 0 40px;
+    }
+    .specificationsPhotos {
+        margin-left: 40px;
+        border-block-end: 1px solid;
+        margin-bottom: 16px;
+    }
+    .detailsArticle {
+        font-size: 14px;
+        padding-bottom: 20px;
+    }
+    .detailsArticle h2 {
+        font-size: 46px;
+    }
+    .bandeauSousPhoto{
+        margin-left: 40px;
+        width: 100%;
+    }
+    .TxtBtnFleche {
+        margin: 0; 
+        padding-bottom: 10px;
+        border-bottom: 1px solid black;
+        /* margin-right: 40px; */
+    }
+    .TxtBtn {
+        display: flex;
+        justify-content: normal;
+    }
+    .TxtBtn p {
+        padding-right: 71px;
+    }
+    .Vsaimerez {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    .autres-photos {
+        margin-right: 40px;
+    }
+    /****** Footer responsive ******/
+    .menu {
+        display: flex;
+        gap: 30px;
+        padding-right: 0px;
         margin-top: 30px;
         flex-direction: column;
     }
-}
+}   
