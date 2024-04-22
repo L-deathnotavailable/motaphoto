@@ -54,7 +54,7 @@ body .modale {
     height: 100%;
     display: none;
     position: fixed;
-    z-index: 9;
+    z-index: 99999;
 }
 #modale{
     display: flex;
